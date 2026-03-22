@@ -9,7 +9,7 @@ map("i", "jk", "<ESC>")
 
 map({ "n" }, "<C-s>", "<cmd> w <cr>")
 
-vim.keymap.set("n", "<leader>ra", function()
+map("n", "<leader>ra", function()
   require "nvchad.lsp.renamer"()
 end, { desc = "LSP Rename" })
 
