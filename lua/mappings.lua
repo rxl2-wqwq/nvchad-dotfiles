@@ -7,7 +7,7 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
-map({ "n" }, "<C-s>", "<cmd> w <cr>")
+map({ "n", "i" }, "<C-s>", "<cmd> w <cr><esc>")
 
 map("n", "<leader>ra", function()
   require "nvchad.lsp.renamer"()
@@ -23,3 +23,8 @@ map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", {
 map("n", "<C-p>", ":FloatermToggle<CR>", { silent = true })
 
 map("n", "<leader>qq", ":wqall<CR>", { desc = "quitall" })
+
+-- windows
+map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
+map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
+map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
