@@ -14,7 +14,7 @@ return {
   },
 
   -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
+  { import = "nvchad.blink.lazyspec" },
 
   {
     "nvim-treesitter/nvim-treesitter",
@@ -27,6 +27,10 @@ return {
         "css",
         "cpp",
         "java",
+        "javascript",
+        "typescript",
+        "json",
+        "tsx",
         "regex",
         "bash",
         "markdown",
@@ -105,24 +109,30 @@ return {
     opts = {},
     cmd = "FloatermToggle",
   },
+  -- noice.nvim
   {
-    "gelguy/wilder.nvim",
-    event = "CmdlineEnter",
-    config = function()
-      local wilder = require "wilder"
-      wilder.setup { modes = { ":", "/", "?" } }
-
-      wilder.set_option(
-        "renderer",
-        wilder.popupmenu_renderer(wilder.popupmenu_border_theme {
-          border = "rounded",
-          highlights = { border = "Normal" },
-          pumblend = 20,
-          left = { " ", wilder.popupmenu_devicons() },
-          right = { " ", wilder.popupmenu_scrollbar() },
-        })
-      )
-    end,
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify", -- opsional, untuk notifikasi
+    },
+    opts = {
+      lsp = {
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true,
+        },
+      },
+      presets = {
+        bottom_search = true, -- search bar di bawah
+        command_palette = true, -- cmdline + popupmenu digabung
+        long_message_to_split = true,
+        inc_rename = false,
+        lsp_doc_border = true, -- border di LSP hover docs
+      },
+    },
   },
   --   {
   --     "folke/noice.nvim",
@@ -130,4 +140,8 @@ return {
   --     dependencies = { "MunifTanjim/nui.nvim" },
   --     opts = require "configs.noice",
   --   },
+  {
+    "jwalton512/vim-blade",
+    ft = "blade",
+  },
 }

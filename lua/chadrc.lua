@@ -86,7 +86,6 @@ M.mason = {
   pkgs = {
     "pretier",
     "stylua",
-
     "eslint_d",
   },
 }

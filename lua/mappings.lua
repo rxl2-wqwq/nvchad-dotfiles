@@ -7,7 +7,7 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
-map({ "n", "i" }, "<C-s>", "<cmd> w <cr><esc>")
+map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr><esc>")
 
 map("n", "<leader>ra", function()
   require "nvchad.lsp.renamer"()
