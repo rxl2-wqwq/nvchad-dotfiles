@@ -144,4 +144,8 @@ return {
     "jwalton512/vim-blade",
     ft = "blade",
   },
+  {
+    "mg979/vim-visual-multi",
+    lazy = false,
+  },
 }
