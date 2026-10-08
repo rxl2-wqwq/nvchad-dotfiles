@@ -8,7 +8,7 @@ M.base46 = {
   theme = "everblush",
   transparency = false,
 
-  theme_toggle = { "ayu_dark", "one_light" },
+  theme_toggle = { "everblush", "one_light" },
 
   hl_override = {
     Comment = { italic = true },
@@ -84,9 +84,10 @@ M.lsp = {
 
 M.mason = {
   pkgs = {
-    "pretier",
+    "prettier",
     "stylua",
     "eslint_d",
+    "black",
   },
 }
 

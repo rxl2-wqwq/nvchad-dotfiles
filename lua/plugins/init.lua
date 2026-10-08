@@ -27,6 +27,9 @@ return {
         "css",
         "cpp",
         "java",
+        "python",
+        "yaml",
+        "dockerfile",
         "javascript",
         "typescript",
         "json",
@@ -122,7 +125,6 @@ return {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
         },
       },
       presets = {
@@ -147,5 +149,33 @@ return {
   {
     "mg979/vim-visual-multi",
     lazy = false,
+  },
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+  },
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy",
+    priority = 1000,
+    config = function()
+      require "configs.diagnostics"
+    end,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+      },
+    },
+    config = function()
+      local conf = require("nvchad.configs.telescope")
+      -- fzf sorter otomatis dipakai kalau lib ada
+      require("telescope").setup(conf)
+      require("telescope").load_extension("fzf")
+    end,
   },
 }
