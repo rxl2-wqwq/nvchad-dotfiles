@@ -97,7 +97,7 @@ If a plugin fails to build (e.g. fzf-native), run:
 | Keys | Function |
 |------|----------|
 | `;` | Enter command mode (`:`) |
-| `jk` (insert) | Exit insert mode |
+| `Esc` (insert) | Exit insert mode |
 | `<C-s>` | Save file |
 | `<leader>qq` | Save & quit all windows |
 | `<leader>z` | Toggle zen mode (focus) |
@@ -281,6 +281,7 @@ If a plugin fails to build (e.g. fzf-native), run:
 - **Debug:** nvim-dap + nvim-dap-ui + nvim-dap-python (debugpy)
 - **Diagnostics:** Trouble, tiny-inline-diagnostic
 - **Git:** Gitsigns + Lazygit
+  - Full LazyGit guide: [LAZYGIT.md](LAZYGIT.md)
 - **Navigation:** Aerial (outline), nvim-navic (breadcrumbs)
 - **Tests:** Neotest + neotest-python
 - **UI/UX:** which-key, noice, hlchunk, markview, flash, zen-mode

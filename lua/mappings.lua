@@ -20,7 +20,7 @@ local map = vim.keymap.set
 
 -- ===== GENERAL =====
 map("n", ";", ":", { desc = "CMD enter command mode" }) -- ; = : (masuk mode command)
-map("i", "jk", "<ESC>") -- jk = keluar insert mode
+-- 'jk' -> <ESC> dihapus: bikin delay tiap ketik 'j' di insert mode (timeout nunggu 'k')
 
 -- Save file (semua mode)
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr><esc>", { desc = "Save file" })
