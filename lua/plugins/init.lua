@@ -178,4 +178,66 @@ return {
       require("telescope").load_extension("fzf")
     end,
   },
+
+  -- Debugger (seperti Run/Debug VSCode)
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
+      "mfussenegger/nvim-dap-python",
+    },
+    config = function()
+      require "configs.dap"
+    end,
+  },
+
+  -- Panel daftar error/warning (Problems)
+  {
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    opts = {},
+  },
+
+  -- Panel Git UI (Source Control)
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = { "LazyGit", "LazyGitCurrentFile", "LazyGitFilter" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  -- Panel outline / simbol kode
+  {
+    "stevearc/aerial.nvim",
+    opts = {},
+  },
+
+  -- Breadcrumb path (class > fungsi)
+  {
+    "SmiteshP/nvim-navic",
+    opts = { separator = " > " },
+  },
+
+  -- Panel test runner
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/neotest-python",
+    },
+    config = function()
+      require("neotest").setup {
+        adapters = { require("neotest-python") { dap = require "dap" } },
+      }
+    end,
+  },
+
+  -- Mode fokus (sembunyikan UI)
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    opts = {},
+  },
 }

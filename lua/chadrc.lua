@@ -5,10 +5,10 @@
 local M = {}
 
 M.base46 = {
-  theme = "everblush",
+  theme = "onedark",
   transparency = false,
 
-  theme_toggle = { "everblush", "one_light" },
+  theme_toggle = { "onedark", "one_light" },
 
   hl_override = {
     Comment = { italic = true },
@@ -88,6 +88,7 @@ M.mason = {
     "stylua",
     "eslint_d",
     "black",
+    "debugpy",
   },
 }
 
