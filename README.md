@@ -1,123 +1,123 @@
 # NvChad Config
 
-Config NvChad v2.5 untuk programming Python & cybersecurity work.
+NvChad v2.5 config for Python & cybersecurity work.
 
-> Base repo: [NvChad starter](https://github.com/NvChad/starter) — modul inti diambil dari `NvChad/NvChad` via `require "nvchad.*"`.
+> Base repo: [NvChad starter](https://github.com/NvChad/starter) — core modules from `NvChad/NvChad` via `require "nvchad.*"`.
 
-Struktur:
-- `lua/chadrc.lua` — tema, UI, dashboard, terminal, mason
-- `lua/mappings.lua` — custom keybind (dokumentasi di bawah)
-- `lua/options.lua` — opsi editor
-- `lua/plugins/init.lua` — plugin tambahan
-- `lua/configs/` — config per-plugin (lsp, conform, diagnostics, chunk)
+Structure:
+- `lua/chadrc.lua` — theme, UI, dashboard, terminal, mason
+- `lua/mappings.lua` — custom keybinds (documented below)
+- `lua/options.lua` — editor options
+- `lua/plugins/init.lua` — extra plugins
+- `lua/configs/` — per-plugin config (lsp, conform, diagnostics, chunk)
 
 ---
 
 # Keybindings
 
-`<Leader>` = **Spasi** (Space). Semua mapping di bawah adalah **custom** buatan sendiri.
-Keybind bawaan NvChad masih aktif (contoh: `<leader>e` file tree, `<C-n>` toggle tree, `<leader>/` komentar).
+`<Leader>` = **Space**. All mappings below are **custom** ones you wrote.
+Default NvChad keybinds are still active (e.g. `<leader>e` file tree, `<C-n>` toggle tree, `<leader>/` comment).
 
-> **Catatan konflik:** `<leader>gd` dipakai untuk **Gitsigns diff** — bukan LSP go-to-definition
-> (LSP pakai `gd` polos, tanpa leader). Jangan bingung kalau dua-duanya ada.
+> **Conflict note:** `<leader>gd` is **Gitsigns diff** — not LSP go-to-definition
+> (LSP uses plain `gd`, no leader). Don't get confused if both exist.
 
-## Umum (General)
+## General
 
-| Keys | Fungsi |
-|------|--------|
-| `;` | Masuk mode command (`:`) |
-| `jk` (insert) | Keluar dari insert mode |
-| `<C-s>` (n/i/v) | Simpan file |
-| `<leader>qq` | Simpan & tutup semua window |
+| Keys | Function |
+|------|----------|
+| `;` | Enter command mode (`:`) |
+| `jk` (insert) | Exit insert mode |
+| `<C-s>` (n/i/v) | Save file |
+| `<leader>qq` | Save & quit all windows |
 
-## Pindah Baris (Move lines)
+## Move Lines
 
-| Keys | Fungsi |
-|------|--------|
-| `<A-j>` / `<A-k>` (n) | Pindah baris ke bawah / atas |
-| `<A-j>` / `<A-k>` (i) | Pindah baris bawah / atas, tetap di insert |
-| `<A-j>` / `<A-k>` (v) | Pindah blok seleksi bawah / atas |
+| Keys | Function |
+|------|----------|
+| `<A-j>` / `<A-k>` (n) | Move line down / up |
+| `<A-j>` / `<A-k>` (i) | Move line down / up, stays in insert |
+| `<A-j>` / `<A-k>` (v) | Move selected block down / up |
 
 ## Window / Split
 
-| Keys | Fungsi |
-|------|--------|
-| `<leader>-` | Split horizontal (di bawah) |
-| `<leader>\|` | Split vertikal (di kanan) |
-| `<leader>wd` | Tutup window aktif |
+| Keys | Function |
+|------|----------|
+| `<leader>-` | Split horizontal (below) |
+| `<leader>\|` | Split vertical (right) |
+| `<leader>wd` | Close active window |
 
-*(Navigasi antar window: bawaan NvChad `<C-h/j/k/l>`)*
+*(Navigate windows with NvChad default `<C-h/j/k/l>`)*
 
 ## Terminal (Floaterm)
 
-| Keys | Fungsi |
-|------|--------|
-| `<C-p>` | Toggle terminal (buka/tutup) |
-| `<leader>rt` | Buka terminal baru |
-| `<leader>rf` | Jalankan file Python aktif di terminal |
-| `<leader>rb` | Jalankan file bash/sh aktif di terminal |
+| Keys | Function |
+|------|----------|
+| `<C-p>` | Toggle terminal |
+| `<leader>rt` | Open new terminal |
+| `<leader>rf` | Run current Python file in terminal |
+| `<leader>rb` | Run current bash/sh file in terminal |
 
 ## Git (Gitsigns)
 
-| Keys | Fungsi |
-|------|--------|
-| `<leader>gp` | Preview diff hunk (di popup) |
-| `<leader>gb` | Git blame baris aktif |
-| `<leader>gd` | Diff seluruh buffer |
+| Keys | Function |
+|------|----------|
+| `<leader>gp` | Preview hunk diff (popup) |
+| `<leader>gb` | Git blame current line |
+| `<leader>gd` | Diff whole buffer |
 | `<leader>gs` | Stage hunk |
 | `<leader>gu` | Undo stage hunk |
 | `<leader>gr` | Reset/revert hunk |
 
-## LSP (aktif saat language server menempel — `LspAttach`)
+## LSP (active when language server attaches — `LspAttach`)
 
-| Keys | Fungsi |
-|------|--------|
+| Keys | Function |
+|------|----------|
 | `gd` | Go to definition |
 | `gD` | Go to declaration |
-| `gr` | Go to references (liat semua pemakaian) |
+| `gr` | Go to references (all usages) |
 | `<leader>D` | Go to type definition |
-| `K` | Hover docs (info signature/type) |
+| `K` | Hover docs (signature/type info) |
 | `<leader>ra` | Rename symbol |
 | `ga` | Code action (auto-fix, quick-fix) |
 | `<leader>cf` | Format buffer (via LSP) |
-| `[d` / `]d` | Diagnostic sebelumnya / berikutnya |
-| `<leader>cd` | Tampilkan diagnostic baris aktif (float) |
+| `[d` / `]d` | Previous / next diagnostic |
+| `<leader>cd` | Show diagnostic for current line (float) |
 | `<leader>wa` / `<leader>wr` | Add / remove workspace folder |
 
-## Search (Telescope — pakai sorter fzf)
+## Search (Telescope — uses fzf sorter)
 
-| Keys | Fungsi |
-|------|--------|
-| `<leader>ff` | Cari file |
-| `<leader>fw` | Live grep (cari teks di semua file) |
-| `<leader>fz` | Fuzzy find di buffer aktif |
-| `<leader>fb` | Daftar buffer terbuka |
-| `<leader>fo` | File recent (oldfiles) |
-| `<leader>fh` | Cari help |
-| `<leader>fq` | Buka quickfix list |
-| `<leader>cm` | Lihat git commits |
+| Keys | Function |
+|------|----------|
+| `<leader>ff` | Find files |
+| `<leader>fw` | Live grep (search text in all files) |
+| `<leader>fz` | Fuzzy find in current buffer |
+| `<leader>fb` | List open buffers |
+| `<leader>fo` | Recent files (oldfiles) |
+| `<leader>fh` | Search help |
+| `<leader>fq` | Open quickfix list |
+| `<leader>cm` | View git commits |
 
 ## Markdown (Markview)
 
-| Keys | Fungsi |
-|------|--------|
-| `<leader>mv` | Toggle rendering Markview |
+| Keys | Function |
+|------|----------|
+| `<leader>mv` | Toggle Markview rendering |
 | `<leader>ms` | Split view rendering |
 
 ---
 
-# Plugin & Alat yang Dipasang
+# Installed Plugins & Tools
 
-- **Programming:** LSP (pyright, clangd, jdtls, ts_ls, eslint, intelephense, html, cssls, harper_ls), Treesitter (incl. python, yaml, dockerfile), conform (formatter: black, prettier, stylua, shfmt, clang-format)
-- **Search:** Telescope + fzf-native (cepat)
+- **Programming:** LSP (pyright, clangd, jdtls, ts_ls, eslint, intelephense, html, cssls, harper_ls), Treesitter (incl. python, yaml, dockerfile), conform (formatters: black, prettier, stylua, shfmt, clang-format)
+- **Search:** Telescope + fzf-native (fast)
 - **UI/UX:** blink.cmp, which-key, noice, hlchunk, markview, tiny-inline-diagnostic
 - **Git:** gitsigns
 - **Terminal:** floaterm
-- **Eksperimen/opsional:** vim-blade, vim-visual-multi, flash
+- **Extra/optional:** vim-blade, vim-visual-multi, flash
 
 ---
 
 # Credits
 
-1) Lazyvim starter https://github.com/LazyVim/starter sebagai dasar NvChad starter.
+1) Lazyvim starter https://github.com/LazyVim/starter as the base of NvChad starter.
 2) NvChad https://github.com/NvChad/NvChad
